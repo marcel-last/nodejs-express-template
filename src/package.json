@@ -1,0 +1,14 @@
+{
+    "name": "nodejs-express-template",
+    "version": "0.0.1",
+    "description": "Template for NodeJS Docker projects",
+    "author": "Marcel Last <marcel.last@outlook.com>",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.18.1"
+    }
+  }
+  
