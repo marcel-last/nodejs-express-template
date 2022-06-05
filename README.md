@@ -1,7 +1,7 @@
 # NodeJS and Express Docker project template
-This is a template project for NodeJS and Express Docker projects.
+This is a template project for NodeJS and Express Docker applications.
 
-Clone this repository as "base project" to get started developing your Node and Express based web application.
+Clone this repository as "base project" to get started developing your NodeJS and Express based application.
 
 ## Development
 NodeJS and Express code and source files are located in the [src](./src/) directory of this project.
