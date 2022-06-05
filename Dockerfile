@@ -25,4 +25,6 @@ EXPOSE 8080
 
 USER node
 
-CMD [ "dumb-init", "node", "server.js" ]
+ENTRYPOINT [ "/usr/local/bin/dumb-init", "--"]
+
+CMD [ "node", "server.js" ]
