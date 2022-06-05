@@ -4,8 +4,8 @@ This is a template project for NodeJS and Express Docker projects.
 Clone this repository as "base project" to get started developing your Node and Express based web application.
 
 ## Development
-Source files of your NodeJS and Express application are located in `src` directory of this project.
-Development of your application and components should be placed here. 
+NodeJS and Express code and source files are located in the [src](./src/) directory of this project.
+Development of your NodeJS and Express application and components should be placed here. 
 
 
 ## Getting Started
