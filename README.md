@@ -27,7 +27,7 @@ $ docker stop e58e8f830c8d
 ### Docker Compose
 ```bash
 # To build and start your Node and Express Docker project with `docker-compose`:
-$ docker-compose up
+$ docker-compose up --build
 
 # To stop your running `docker-compose` deployment:
 $ docker-compose down
