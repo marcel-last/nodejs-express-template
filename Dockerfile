@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY --chown=node:node src/. .
 
-# Update NPM to 8.11.x new minor release and install node package dependencies
+# Update NPM to 8.12.x new minor release and install node package dependencies
 RUN set -eu && \
     npm install -g npm@8.12.1 && \
     npm install && \
