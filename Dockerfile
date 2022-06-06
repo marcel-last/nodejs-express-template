@@ -1,20 +1,20 @@
-FROM node:18.2.0-alpine3.15
+ARG BASE_IMAGE=node
+ARG BASE_IMAGE_TAG=18.2.0-alpine3.15
+ARG BASE_IMAGE_SHA256=8a7f5435fd83f6d1dbdeff2decad2275b2550d28cacf7acd653d2cbaee957965
+
+FROM ${BASE_IMAGE}:${BASE_IMAGE_TAG}@sha256:${BASE_IMAGE_SHA256}
+
+ARG NPM_VERSION=8.12.1
 
 RUN set -eu && \
-    wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5_x86_64 && \
-    echo "e874b55f3279ca41415d290c512a7ba9d08f98041b28ae7c2acb19a545f1c4df  /usr/local/bin/dumb-init" | sha256sum -c - && \
-    chmod 755 /usr/local/bin/dumb-init
+    apk add --no-cache tini
 
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
 COPY --chown=node:node src/. .
 
-# Update NPM to 8.12.x new minor release and install node package dependencies
 RUN set -eu && \
-    npm install -g npm@8.12.1 && \
+    npm install -g npm@${NPM_VERSION} && \
     npm install && \
     chown -R node:node -R .
 
@@ -25,6 +25,6 @@ EXPOSE 8080
 
 USER node
 
-ENTRYPOINT [ "/usr/local/bin/dumb-init", "--"]
+ENTRYPOINT [ "/sbin/tini", "--" ]
 
 CMD [ "node", "server.js" ]
